@@ -78,20 +78,20 @@ proc netmask {cidr} {
 
         switch -glob -- $line {
             "Network address*" {
-                #ipv4 
+                # ipv4
                 set ipv4 [lindex $line 3]
                 continue
             }
             "Network mask (bits)*" {
-                #ipv4
+                # ipv4
                 set ipv4mask [lindex $line 4]
             }
             "Compressed address*" {
-                #ipv6
+                # ipv6
                 set ipv6 [lindex $line 3]
             }
             "Prefix length*" {
-                #ipv6
+                # ipv6
                 set ipv6prefix [lindex $line 3]
             }
 
@@ -115,7 +115,7 @@ proc netmask {cidr} {
             return "$ipv6/$ipv6prefix"
         }
     } else {
-        #this will trigger the caller skip this entry if we got bad info
+        # this will trigger the caller skip this entry if we got bad info
         return -code continue 
     }
 
