@@ -53,7 +53,7 @@ foreach services $json {
     }
 }
 
-set net [validate_networks $raw_networks 75]
+set net [validate_networks $raw_networks 20]
 
 set date [clock format [clock seconds] -format "%Y-%m-%d.%H:%M"]
 puts "# Microsoft Office365 $date"
