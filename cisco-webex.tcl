@@ -39,7 +39,7 @@ foreach r $records {
         if { $debug } { puts "r: $r" }
 
         # April 2023 new entires have non-breaking space
-        set r [string map {"&nbsp;" ""} $r]
+        set r [string map {"&nbsp;" " "} $r]
 
         set cisco [lindex [split $r " "] 0]
 
