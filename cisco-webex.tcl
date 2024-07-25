@@ -37,6 +37,10 @@ set raw_networks ""
 foreach r $records {
     if { [string match "*CIDR*" $r] } {
         if { $debug } { puts "r: $r" }
+
+        # April 2023 new entires have non-breaking space
+        set r [string map {"&nbsp;" ""} $r]
+
         set cisco [lindex [split $r " "] 0]
 
         # returns {net mask} {type}
