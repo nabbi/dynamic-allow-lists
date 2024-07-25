@@ -35,6 +35,12 @@ set data [myhttp "https://help.webex.com/en-US/article/WBX264/How-Do-I-Allow-Web
 set records [split $data "<li><li>"]
 set raw_networks ""
 foreach r $records {
+    # stop processing once we reach Article Revision History to avoid grabbing CIDRs mentioned within that section
+    if { [string match "*new and changed info*" [string tolower $r] ] } {
+        if { $debug } { puts "# reached article revision history, done parsing" }
+        break
+    }
+
     if { [string match "*CIDR*" $r] } {
         if { $debug } { puts "r: $r" }
 
