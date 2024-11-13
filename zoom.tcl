@@ -21,7 +21,7 @@ foreach line [split $data "\n"] {
     lappend raw_networks [lindex [split $line " "] 0]
 }
 
-set net [validate_networks $raw_networks 200]
+set net [validate_networks $raw_networks 25]
 
 set date [clock format [clock seconds] -format "%Y-%m-%d.%H:%M"]
 puts "# Zoom $date"
